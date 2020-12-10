@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import db from './firebase';
+import firebase from 'firebase';
+
 function Dashboard() {
 
     const [titleInput, setTitleInput] = useState([]);
@@ -13,14 +16,22 @@ function Dashboard() {
     const storeInput = (event) => {
         event.preventDefault();
 
-        const userInfo = {
-            inputText:input, 
-            id:Math.random() + 1
-        }
-        setTitleInput([...titleInput, userInfo]);
-        console.log(titleInput);
+       
+        db.collection('Titles').add({
+          
+            blog_title: input,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
+       
         setInput('');
     }
+
+    //get db
+    useEffect(() => {
+        db.collection('Titles').orderBy('timestamp','desc').onSnapshot(snapshot => {
+            setTitleInput(snapshot.docs.map(doc => ({id: doc.id, title:doc.data().blog_title})));
+        })
+    }, [])
     return (
         <form className="container">
             <Link to="/">Go back to homepage</Link>
@@ -38,8 +49,9 @@ function Dashboard() {
                     onClick={storeInput}>add </button>    
                     
                 {titleInput.map((item) => { 
-                    return (<h1 key={item.id}> {item.inputText}</h1>);
-                })}
+                    return (<h1 key={item.id}> {item.title}</h1>);
+                })
+                }
             </div>
         </form>
        

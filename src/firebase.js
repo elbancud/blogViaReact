@@ -1,8 +1,5 @@
 import firebase from 'firebase';
 
-const firebaseConfig = {
-  
-};
 
 //initialize firebase cloud server
 const firebaseApp = firebase.initializeApp({
@@ -17,7 +14,7 @@ const firebaseApp = firebase.initializeApp({
 
 
 //initialize the backend firestore
-const db = firebaseApp.fireStore();
+const db = firebaseApp.firestore();
 
 //export so we could use it globally
-export { db };
+export default db;
