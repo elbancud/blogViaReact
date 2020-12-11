@@ -121,3 +121,36 @@ nav {
     max-width: 450px;
   }
 }
+
+.modal {
+  .modal-content {
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.3rem;
+    outline: none;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    .border-bottom {
+      border-bottom: 1px solid rgb(41, 41, 41);
+    }
+    .delete-message {
+      padding: 0.8rem 0;
+    }
+    .confirmation-btn {
+      position: absolute;
+      bottom: 10%;
+      width: 100%;
+      right: 1rem;
+      display: flex;
+      justify-content: flex-end;
+      .btn-confirm {
+        margin: 0 0.3rem;
+      }
+    }
+  }
+}

@@ -161,4 +161,44 @@ nav .nav-link .react-link {
   width: 500px;
   max-width: 450px;
 }
+
+.modal .modal-content {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.3rem;
+  outline: none;
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+}
+
+.modal .modal-content .border-bottom {
+  border-bottom: 1px solid #292929;
+}
+
+.modal .modal-content .delete-message {
+  padding: 0.8rem 0;
+}
+
+.modal .modal-content .confirmation-btn {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.modal .modal-content .confirmation-btn .btn-confirm {
+  margin: 0 0.3rem;
+}
 /*# sourceMappingURL=style.css.map */

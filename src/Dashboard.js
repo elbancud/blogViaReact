@@ -5,7 +5,9 @@ import firebase from 'firebase';
 import Articles from './Articles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 import './style.css';
 
 
@@ -13,7 +15,8 @@ function Dashboard() {
 
     const [titleInput, setTitleInput] = useState([]);
     const [input, setInput] = useState('');
-
+    const [openDeleteConfirmation, setOpenDeleteConfirmation] = useState(false);
+    
     //listen to inputs
     const inputHandle = (event) => {
         setInput(event.target.value);
@@ -26,8 +29,12 @@ function Dashboard() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp() //initialize timestamp for descending order
         })
        
+       
         setInput('');
     }
+     const openModal = () => {
+         setOpenDeleteConfirmation(true);   
+     }
     //get db everytime the page loads
     useEffect(() => {
             db.collection('Titles').orderBy('timestamp','desc').onSnapshot(snapshot => {
@@ -51,7 +58,9 @@ function Dashboard() {
                             id="standard-basic"
                             label="Title"
                             onChange={inputHandle}
+                            value={input}
                             className="textfield-title"
+                            
                         />
                         <br />
                         <TextField
@@ -62,11 +71,12 @@ function Dashboard() {
                         />
                         <br />    
                         <Button
+                            type="submit"
                             variant="contained"
                             color="primary"
                             onClick={storeInput}
                             disabled={!input}>
-                                Save
+                         Save
                         </Button>
                     </div>
                     <h2>Your articles</h2>
@@ -74,7 +84,7 @@ function Dashboard() {
                         { titleInput.map((item) => { 
                             return (<Articles title={item.title} id={item.id} />);
                         })
-                            }
+                        }
                     </div>
                 
             </div>
