@@ -156,19 +156,32 @@ nav .nav-link .react-link {
   padding: 2rem;
 }
 
-.input-fields .textfield-title {
+.input-fields .edit {
+  width: 450px;
+}
+
+.input-fields .textfield {
   margin: 1rem 0;
-  width: 500px;
   max-width: 450px;
 }
 
+.input-fields .normal {
+  width: 500px;
+}
+
+.input-fields .small {
+  width: 350px;
+}
+
 .modal .modal-content {
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   background-color: white;
   border-radius: 0.3rem;
   outline: none;
-  width: 400px;
-  height: 200px;
+  width: 450px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   position: absolute;
   top: 10%;
   left: 50%;
@@ -186,10 +199,8 @@ nav .nav-link .react-link {
 }
 
 .modal .modal-content .confirmation-btn {
-  position: absolute;
-  bottom: 10%;
   width: 100%;
-  right: 1rem;
+  padding: 0.5rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

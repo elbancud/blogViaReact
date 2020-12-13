@@ -5,9 +5,7 @@ import firebase from 'firebase';
 import Articles from './Articles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+
 import './style.css';
 
 
@@ -15,7 +13,6 @@ function Dashboard() {
 
     const [titleInput, setTitleInput] = useState([]);
     const [input, setInput] = useState('');
-    const [openDeleteConfirmation, setOpenDeleteConfirmation] = useState(false);
     
     //listen to inputs
     const inputHandle = (event) => {
@@ -32,9 +29,7 @@ function Dashboard() {
        
         setInput('');
     }
-     const openModal = () => {
-         setOpenDeleteConfirmation(true);   
-     }
+     
     //get db everytime the page loads
     useEffect(() => {
             db.collection('Titles').orderBy('timestamp','desc').onSnapshot(snapshot => {
@@ -59,7 +54,7 @@ function Dashboard() {
                             label="Title"
                             onChange={inputHandle}
                             value={input}
-                            className="textfield-title"
+                            className="textfield normal"
                             
                         />
                         <br />
@@ -67,7 +62,7 @@ function Dashboard() {
                             id="standard-basic"
                             label="Content"
                             
-                            className="textfield-title"
+                            className="textfield normal"
                         />
                         <br />    
                         <Button

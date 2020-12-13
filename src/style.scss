@@ -114,22 +114,29 @@ nav {
 }
 .input-fields {
   padding: 2rem;
-
-  .textfield-title {
+  .edit {
+    width: 450px;
+  }
+  .textfield {
     margin: 1rem 0;
-    width: 500px;
     max-width: 450px;
+  }
+  .normal {
+    width: 500px;
+  }
+  .small {
+    width: 350px;
   }
 }
 
 .modal {
   .modal-content {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     background-color: white;
     border-radius: 0.3rem;
     outline: none;
-    width: 400px;
-    height: 200px;
+    width: 450px;
+    height: max-content;
     position: absolute;
     top: 10%;
     left: 50%;
@@ -142,10 +149,8 @@ nav {
       padding: 0.8rem 0;
     }
     .confirmation-btn {
-      position: absolute;
-      bottom: 10%;
       width: 100%;
-      right: 1rem;
+      padding: 0.5rem 0;
       display: flex;
       justify-content: flex-end;
       .btn-confirm {

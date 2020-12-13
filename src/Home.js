@@ -3,23 +3,25 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 function Home() {
+
+   
     return (
         <div className="container">
             {/* navigation */}
             <header>
                 <nav>
-                    <ul className="nav-list">
-                        <li className="nav-link"><h2>logo</h2></li>
+                    <ul  className="nav-list">
+                        <li key={ Math.random()} className="nav-link"><h2>logo</h2></li>
                     </ul>
 
-                    <ul className="nav-list">
-                        <li className="nav-link">
+                    <ul  className="nav-list">
+                        <li key={ Math.random()} className="nav-link">
                             About me
                         </li>
-                        <li className="nav-link">
+                        <li key={ Math.random()} className="nav-link">
                             Contact
                         </li>
-                        <li className="nav-link">
+                        <li key={ Math.random()} className="nav-link">
                             <Link className= "react-link" to="/dashboard">Dashboard</Link>   
 
                         </li>
@@ -39,6 +41,9 @@ function Home() {
                     </div>
                 </div>
             </header>
+            <section>
+
+            </section>
         </div>
     )
 }
